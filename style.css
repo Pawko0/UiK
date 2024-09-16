@@ -1,0 +1,162 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Pełna wysokość widoku */
+    margin: 0;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003366; 
+    padding: 20px 10%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+nav ul.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul.nav-menu li {
+    margin-right: 30px; 
+}
+
+nav ul.nav-menu li:last-child {
+    margin-right: 0;
+}
+
+nav ul.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul.nav-menu li a:hover {
+    color: linear-gradient(90deg, #cac531 0%, #f3f9a7 100%); /* Kolor podświetlenia linku */
+    
+}
+
+/* Efekt podkreślenia */
+nav ul.nav-menu li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fffd00;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+nav ul.nav-menu li a:hover::after {
+    width: 100%; /* Efekt podkreślenia */
+}
+
+#centre{
+    background-image: url(photos/coal.png);
+}
+
+#centre .centre-background{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+#centre .centre-background video{
+    border-radius: 20px;
+}
+
+/* Stylizacja sekcji 'O Nas' */
+#about-us {
+    background-color: #f4f4f4;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 40px;
+    margin-top: 50px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#about-us .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#about-us h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #003366;
+}
+
+#about-us .intro {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#about-us .button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #003366;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#about-us .button:hover {
+    background-color: #005599;
+}
+
+.building {
+    max-width: 100px;
+    max-height: auto;
+    border-radius: 30px;
+}
+
+
+
+
+/* Stylizacja dla mniejszych ekranów */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul.nav-menu {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    nav ul.nav-menu li {
+        margin: 10px 0;
+        text-align: left;
+    }
+}
