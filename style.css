@@ -1,43 +1,66 @@
-
 body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Pełna wysokość widoku */
-    margin: 0;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Pełna wysokość widoku */
+  margin: 0;
 }
 
-
-header {
+/* Reset box-sizing dla wszystkich elementów */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth; /* Płynne przewijanie */
+  }
+  
+  header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #003366; 
+    background-color: #003366;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
     padding: 20px 10%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.logo img {
+    transition: padding 0.3s ease, background-color 0.3s ease;
+  }
+  
+  header.scrolled {
+    padding: 10px 5%;
+    background-color: #002244; /* Możesz dostosować kolor po przewinięciu */
+  }
+  
+  .logo img {
     max-height: 50px;
-}
-
-nav ul.nav-menu {
+    transition: max-height 0.3s ease;
+  }
+  
+  header.scrolled .logo img {
+    max-height: 30px; /* Zmniejsz wysokość logo po przewinięciu */
+  }
+  
+  nav ul.nav-menu {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
-}
-
-nav ul.nav-menu li {
-    margin-right: 30px; 
-}
-
-nav ul.nav-menu li:last-child {
+    text-align: center;
+  }
+  
+  nav ul.nav-menu li {
+    margin-right: 30px;
+    flex-shrink: 0;
+  }
+  
+  nav ul.nav-menu li:last-child {
     margin-right: 0;
-}
-
-nav ul.nav-menu li a {
+  }
+  
+  nav ul.nav-menu li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -46,16 +69,18 @@ nav ul.nav-menu li a {
     padding: 10px;
     position: relative;
     transition: color 0.3s ease;
-}
-
-nav ul.nav-menu li a:hover {
-    color: linear-gradient(90deg, #cac531 0%, #f3f9a7 100%); /* Kolor podświetlenia linku */
-    
-}
-
-/* Efekt podkreślenia */
-nav ul.nav-menu li a::after {
-    content: '';
+  }
+  
+  nav ul.nav-menu li a:hover {
+    background: linear-gradient(90deg, #cac531 0%, #f3f9a7 100%);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  /* Efekt podkreślenia */
+  nav ul.nav-menu li a::after {
+    content: "";
     display: block;
     width: 0;
     height: 2px;
@@ -64,171 +89,268 @@ nav ul.nav-menu li a::after {
     position: absolute;
     bottom: 0;
     left: 0;
-}
-
-nav ul.nav-menu li a:hover::after {
-    width: 100%; /* Efekt podkreślenia */
-}
-
-#centre{
-    background-image: url(photos/coal.png);
-}
-
-#centre .content{
-    margin-top: 30px;
-    margin-bottom: 30px;
+  }
+  
+  nav ul.nav-menu li a:hover::after {
+    width: 100%;
+  }
+  
+  /* Styl dla ikony hamburgera */
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+  }
+  
+  /* Styl dla rozwijanego menu */
+  nav ul.nav-menu-mobile {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Wysokość paska nawigacyjnego */
+    right: 0;
+    background-color: #003366;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  nav ul.nav-menu-mobile.active {
     display: flex;
-    justify-content: center;
+  }
+  
+  nav ul.nav-menu-mobile li {
+    margin: 0;
+    text-align: center;
+  }
+  
+  nav ul.nav-menu-mobile li a {
+    padding: 15px;
+    display: block;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .logo img {
+      max-height: 30px; /* Zmniejsz wysokość logo na mniejszych ekranach */
+    }
+  
+    .hamburger {
+      display: block;
+      cursor: pointer;
+      font-size: 24px;
+      color: white;
+      position: absolute;
+      top: 20px; /* Dostosuj do potrzeb */
+      right: 20px; /* Dostosuj do potrzeb */
+    }
+  
+    nav ul.nav-menu {
+      display: none;
+    }
+  
+    nav ul.nav-menu-mobile {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 50px; /* Wysokość paska nawigacyjnego */
+      right: 0;
+      background-color: #003366;
+      width: 100%;
+      padding: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    nav ul.nav-menu-mobile.active {
+      display: flex;
+    }
+  
+    nav ul.nav-menu-mobile li {
+      margin: 0;
+      text-align: center;
+    }
+  
+    nav ul.nav-menu-mobile li a {
+      padding: 15px;
+      display: block;
+      color: white;
+    }
+    
+  }
+  
+  /* Wungiel i filmik */
+
+#centre {
+  background-image: url(photos/coal.png);
 }
-#centre .content video{
-    border-radius: 20px;
+
+#centre .content {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+#centre .content video {
+  border-radius: 20px;
+  margin-top: 5%;
+  margin-bottom: 3%;
 }
 
 /* Stylizacja sekcji 'O Nas' */
 #about-us {
-    background-color: #f4f4f4;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-radius: 40px;
-    margin-top: 50px;
-    padding: 60px 20px;
-    text-align: center;
+  background-color: #f4f4f4;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 40px;
+  margin-top: 50px;
+  padding: 60px 20px;
+  text-align: center;
 }
 
 #about-us .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    
+  max-width: 1200px;
+  margin: 0 auto;
 }
-#about-us .container .first-section{
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-    margin-bottom: 40px;
+#about-us .container .first-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
 #about-us .container .building {
-    flex: 1 1 40%; /* Obrazek zajmuje do 40% szerokości */
-    max-width: 100%;
-    margin: auto auto;
- }
+  flex: 1 1 40%; /* Obrazek zajmuje do 40% szerokości */
+  max-width: 100%;
+  margin: auto auto;
+}
 
- #about-us .container .building img{
-    width: 100%; /* Obrazek dostosuje się do kontenera */
-    border-radius: 40px; 
- }
+#about-us .container .building img {
+  width: 100%; /* Obrazek dostosuje się do kontenera */
+  border-radius: 40px;
+}
 
- #about-us .container .intro{
-    flex: 1 1 50%; /* Tekst zajmuje do 50% szerokości */
- }
-
+#about-us .container .intro {
+  flex: 1 1 50%; /* Tekst zajmuje do 50% szerokości */
+  font-size: 20px;
+  text-align: justify;
+  margin: auto 0;
+}
 
 #about-us h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    margin-top: 0px;
-    color: #003366;
+  font-size: 32px;
+  margin-bottom: 30px;
+  margin-top: 0px;
+  color: #003366;
 }
 
 #about-us .intro {
-    font-size: 20px;
-    margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 #about-us p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: justify;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: justify;
 }
 
+#about-us .container .quality {
+    flex: 1 1 40%; /* Obrazek zajmuje do 40% szerokości */
+    max-height: 100%;
+    margin: auto auto;
+  }
 
-
+  #about-us .container .quality img {
+    width: 65%; /* Obrazek dostosuje się do kontenera */
+    border-radius: 40px;
+  }
 
 #about-us .button {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #003366;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #003366;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 #about-us .button:hover {
-    background-color: #005599;
+  background-color: #005599;
 }
 
+/* Responsywność dla ekranów o szerokości do 768px */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Na mniejszych ekranach obrazek i tekst ustawiają się jeden pod drugim */
-    }
+  #about-us .container {
+    flex-direction: column; /* Ustawienie elementów w kolumnie */
+  }
 
-    .about-image, .about-text {
-        flex: 1 1 100%; /* Oba elementy zajmują całą szerokość */
-    }
+  #about-us .first-section {
+    flex-direction: column; /* Ustawienie obrazka i tekstu jeden pod drugim */
+    text-align: center;
+  }
 
-    .about-text {
-        padding: 0;
-    }
+  #about-us .building,
+  #about-us .intro {
+    flex: 1 1 100%; /* Oba elementy zajmują 100% szerokości */
+  }
 }
 
+/* Responsywność dla ekranów o szerokości do 480px */
 @media (max-width: 480px) {
-    .about-text p {
-        font-size: 14px; /* Zmniejszenie rozmiaru tekstu na bardzo małych ekranach */
-    }
+  #about-us .intro p {
+    font-size: 14px; /* Zmniejszenie rozmiaru tekstu na mniejszych ekranach */
+  }
 
-    .button {
-        padding: 8px 15px; /* Zmniejszenie przycisku na małych ekranach */
-    }
+  #about-us .button {
+    padding: 8px 15px; /* Zmniejszenie przycisku na mniejszych ekranach */
+  }
 }
 /*
 .building {
     max-width: 100px;
     max-height: auto;
     border-radius: 30px;
-}  nie wiadomo co to jest   */ 
-
+}  nie wiadomo co to jest   */
 
 /* stopka */
 
 footer {
-    width: 100%;
-    height: 100px;
-    margin-top: 60px;
-    margin-bottom: 0;
-    background-color: black;
+  width: 100%;
+  height: 100px;
+  margin-top: 60px;
+  margin-bottom: 0;
+  background-color: black;
 }
 
-footer p{
-    font-size: large;
-    color: white;
+footer p {
+  font-size: large;
+  color: white;
 }
 
-footer .contact{
-    margin-right: 50%;
+footer .contact {
+  margin-right: 50%;
 }
-
-
-
 
 /* Stylizacja dla mniejszych ekranów */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    nav ul.nav-menu {
-        flex-direction: column;
-        width: 100%;
-        padding: 0;
-    }
+  nav ul.nav-menu {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
 
-    nav ul.nav-menu li {
-        margin: 10px 0;
-        text-align: left;
-    }
+  nav ul.nav-menu li {
+    margin: 10px 0;
+    text-align: left;
+  }
 }

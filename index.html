@@ -1,75 +1,112 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Urzadzenia i Konstrukcje S.A.</title>
-        <meta name="description" content="UiK">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <div class="logo">
-                <a href="index.html"><img src="photos/logo.png" alt="Logo firmy Urządzenia i Konstrukcje"></a>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Strona Główna</a></li>
-                    <li><a href="#about">O Nas</a></li>
-                    <li><a href="#products">Produkty</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
-                </ul>
-            </nav>
-        </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Urzadzenia i Konstrukcje S.A.</title>
+    <meta name="description" content="UiK" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html"
+          ><img src="photos/logo.png" alt="Logo firmy Urządzenia i Konstrukcje"
+        /></a>
+      </div>
+      <div class="hamburger">&#9776;</div> <!-- Ikona hamburgera -->
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Strona Główna </a></li>
+        <li><a href="#">O nas</a></li>
+        <li><a href="#">Produkty</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+      <ul class="nav-menu-mobile">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    </header>
 
-       
+    <section id="centre">
+      <div class="content">
+        <video autoplay muted controls width="85%" height="auto" class="video">
+          <source src="photos/Frezowanie_B1_1.mp4" type="video/mp4" />
+          Twój przeglądarka nie obsługuje wideo.
+        </video>
+      </div>
+    </section>
+    <section id="about-us">
+      <div class="container">
+        <h2>Kilka słów o nas</h2>
+        <div class="first-section">
+          <a class="building"><img src="photos/budynek.png" /></a>
+          <p class="intro">
+            URZĄDZENIA I KONSTRUKCJE Spółka Akcyjna prowadzi działalność
+            produkcyjną od czerwca 2005 roku. Firma zlokalizowana jest na
+            obszarze południowej Polski na Śląsku, w strefie przemysłowej miasta
+            Żory. Główną działalnością firmy jest produkcja prowadzona na
+            obszarze 30 000 m2 w halach produkcyjnych wyposażonych w nowoczesne
+            maszyny i urządzenia oraz niezbędne systemy w zakresie mediów.
+            Spółka zatrudnia wysoko wykwalifikowaną kadrę pracowniczą oraz
+            inżynieryjno-techniczną z własnym biurem projektowym, gwarantującą
+            szybką i profesjonalną realizację powierzanych zadań i zleceń.
+          </p>
+        </div>
+        <h2>Gwarancja jakości</h2>
+        <div class="first-section">
+          <p class="intro">
+            Mając na uwadze spełnienie oczekiwań naszych klientów spółka
+            wdrożyła oraz certyfikowała systemy doskonalące jakość naszych
+            wyrobów i usług, a co za tym idzie pozyskała uprawnienia i
+            certyfikaty: System Zarządzania Jakością zgodny z wymaganiami normy
+            PN-EN ISO 9001:2015. <br />
+            Zapewnienia Jakości Procesów Spawalniczych zgodny z wymaganiami
+            normy PN-EN ISO 3834-2. <br />Zakładowa Kontrola Produkcji zgodna z
+            wymaganiami normy EN 1090-1:2009+A1:2011.<br />
+            Powiadomienie o zapewnieniu jakości wyrobów przeznaczonych do pracy
+            w przestrzeniach zagrożonych wybuchem (DYREKTYWA 2014/34/UE).<br />
+            Ocena zdolności do wykonywania remontów sekcji obudów
+            zmechanizowanych oraz przenośników zgrzebłowych.
+          </p>
+          <a class="quality"><img src="photos/quality.png" /></a>
+        </div>
 
-            <section id="centre">
-                <div class="content">
-                    <video autoplay muted controls width="85%" height="auto" class="video">
-                        <source src="photos/Frezowanie_B1_1.mp4" type="video/mp4">
-                        Twój przeglądarka nie obsługuje wideo.
-                    </video>
-                </div>
-                
-            
-            </section>
-            <section id="about-us">
-                <div class="container">
-                    <h2>Kilka słów o nas</h2>
-                    <div class="first-section">
-                        <a class="building"><img src="photos/budynek.png"></a>
-                        <p class="intro">
-                            URZĄDZENIA I KONSTRUKCJE Spółka Akcyjna prowadzi działalność produkcyjną od czerwca 2005 roku.
-                             Firma zlokalizowana jest na obszarze południowej Polski na Śląsku, 
-                             w strefie przemysłowej miasta Żory.
+        <a href="contact.html" class="button">Dowiedz się więcej</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="contact">
+        <p class=""></p>
+      </div>
+      <div class="info">
+        <p class="akcje">Informacje dla akcjonariuszy</p>
+      </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const header = document.querySelector('header');
+          const hamburger = document.querySelector('.hamburger');
+          const navMenuMobile = document.querySelector('.nav-menu-mobile');
     
-                            Główną działalnością firmy jest produkcja prowadzona na obszarze 30 000 m2 w halach produkcyjnych wyposażonych w nowoczesne maszyny i urządzenia oraz niezbędne systemy w zakresie mediów.
-                            
-                            Spółka zatrudnia wysoko wykwalifikowaną kadrę pracowniczą oraz inżynieryjno-techniczną z własnym biurem projektowym, gwarantującą szybką i profesjonalną realizację powierzanych zadań i zleceń.                    
-                        </p> 
-                    </div>
-                    
-                    
-                    <a href="contact.html" class="button">Dowiedz się więcej</a>
-                </div>
-            </section>
-
-
-            <footer>
-                <div class="contact"> 
-                    <p class=""></p>
-                </div>
-                <div class="info">
-                    <p class="akcje">Informacje dla akcjonariuszy</p>
-
-                </div>
-            </footer>
-
-        
-        
-        
-        <script src="" async defer></script>
-    </body>
+          window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+              header.classList.add('scrolled');
+            } else {
+              header.classList.remove('scrolled');
+            }
+          });
+    
+          hamburger.addEventListener('click', function() {
+            navMenuMobile.classList.toggle('active');
+          });
+        });
+      </script>
+  </body>
 </html>
