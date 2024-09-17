@@ -74,13 +74,13 @@ nav ul.nav-menu li a:hover::after {
     background-image: url(photos/coal.png);
 }
 
-#centre .centre-background{
+#centre .content{
     margin-top: 30px;
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
 }
-#centre .centre-background video{
+#centre .content video{
     border-radius: 20px;
 }
 
@@ -98,11 +98,35 @@ nav ul.nav-menu li a:hover::after {
 #about-us .container {
     max-width: 1200px;
     margin: 0 auto;
+    
 }
+#about-us .container .first-section{
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+#about-us .container .building {
+    flex: 1 1 40%; /* Obrazek zajmuje do 40% szerokości */
+    max-width: 100%;
+    margin: auto auto;
+ }
+
+ #about-us .container .building img{
+    width: 100%; /* Obrazek dostosuje się do kontenera */
+    border-radius: 40px; 
+ }
+
+ #about-us .container .intro{
+    flex: 1 1 50%; /* Tekst zajmuje do 50% szerokości */
+ }
+
 
 #about-us h2 {
     font-size: 32px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 0px;
     color: #003366;
 }
 
@@ -116,7 +140,11 @@ nav ul.nav-menu li a:hover::after {
     line-height: 1.6;
     color: #333;
     margin-bottom: 20px;
+    text-align: justify;
 }
+
+
+
 
 #about-us .button {
     display: inline-block;
@@ -133,10 +161,54 @@ nav ul.nav-menu li a:hover::after {
     background-color: #005599;
 }
 
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Na mniejszych ekranach obrazek i tekst ustawiają się jeden pod drugim */
+    }
+
+    .about-image, .about-text {
+        flex: 1 1 100%; /* Oba elementy zajmują całą szerokość */
+    }
+
+    .about-text {
+        padding: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text p {
+        font-size: 14px; /* Zmniejszenie rozmiaru tekstu na bardzo małych ekranach */
+    }
+
+    .button {
+        padding: 8px 15px; /* Zmniejszenie przycisku na małych ekranach */
+    }
+}
+/*
 .building {
     max-width: 100px;
     max-height: auto;
     border-radius: 30px;
+}  nie wiadomo co to jest   */ 
+
+
+/* stopka */
+
+footer {
+    width: 100%;
+    height: 100px;
+    margin-top: 60px;
+    margin-bottom: 0;
+    background-color: black;
+}
+
+footer p{
+    font-size: large;
+    color: white;
+}
+
+footer .contact{
+    margin-right: 50%;
 }
 
 
